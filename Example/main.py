@@ -11,6 +11,7 @@ dungeon.link_cave(grotto, "west")
 dungeon.link_cave(cavern, "north")
 cavern.link_cave(dungeon, "south")
 grotto.link_cave(dungeon, "east")
+
 harry = Enemy("Harry", "A smelly Wumpus")
 harry.set_conversation("Hangry…Hanggrry")
 harry.set_weakness("vegemite")
@@ -26,6 +27,7 @@ torch.set_description("A light for the end of the tunnel")
 dungeon.set_item(torch)
 bag = []
 current_cave = cavern
+
 dead = False
 while dead == False:
     print("\n")
