@@ -8,6 +8,13 @@ saferoom = Room('Safe Room','A small room only a mouse can fit in and you can fr
 hallway1.linked_rooms(saferoom, "Exit 1")
 hallway1.linked_rooms(hallway2, "Exit 2")
 hallway1.linked_rooms(cheeseroom, "Exit 3")
+hallway2.linked_rooms(hallway1, "Exit 1")
+saferoom.linked_rooms(hallway1, "Exit 1")
+cheeseroom.linked_rooms(cheeseroom, "Exit 1")
 
+hallway1.get_details()
+hallway2.get_details()
+cheeseroom.get_details()
+saferoom.get_details()
 
 hallway1.describe()
