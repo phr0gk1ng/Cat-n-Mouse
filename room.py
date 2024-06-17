@@ -10,13 +10,16 @@ class Room():
     def linked_room(self, room_to_link, direction):
         self.linked_rooms[direction] = room_to_link
     
+    def get_description(self):
+        return self.description
+    
     def get_details(self):
         print(self.name)
         print("----------")
         print(self.description)
         for direction in self.linked_rooms:
-            room = self.linked_rooms[direction]
-            print("The " + self.description + " is " + direction)
+            room = self.linked_rooms[direction].get_description()
+            print("The " + room + " is " + direction)
 
     def move(self, direction):
         if direction in self.linked_rooms:
@@ -24,5 +27,3 @@ class Room():
         else:
             print("You can't go that way")
             return self
-    
-
