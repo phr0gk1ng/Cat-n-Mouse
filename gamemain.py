@@ -10,7 +10,7 @@ hallway1.linked_room(hallway2, "Exit 2")
 hallway1.linked_room(cheeseroom, "Exit 3")
 hallway2.linked_room(hallway1, "Exit 1")
 saferoom.linked_room(hallway1, "Exit 1")
-cheeseroom.linked_room(cheeseroom, "Exit 1")
+cheeseroom.linked_room(hallway1, "Exit 1")
 
 current_room = hallway1
 while True:
