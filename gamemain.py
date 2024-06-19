@@ -24,7 +24,9 @@ cheeseroom.linked_room({"Exit 1", hallway1})
 
 current_room = hallway1
 
-while True:
+dead = False
+
+while dead==False:
     print("\n")
     current_room.get_details()
     inhabitant = current_room.get_char()
@@ -32,3 +34,23 @@ while True:
         inhabitant.describe()
     command = input("> ")
     current_room = current_room.move(command)
+    if command in ["Exit 1", "Exit 2", "Exit 3"]:
+        current_room = current_room.move(command)
+    elif command == "talk":
+        if inhabitant is not None:
+            inhabitant.talk()
+    elif command == "fight":
+        if inhabitant is not None and isinstance(inhabitant, Enemy):
+# Fight with the inhabitant, if there is one
+            print("What will you fight with?")
+            fight_with = input('> ')
+            if inhabitant.fight(fight_with) == True:
+# What happens if you win?
+                print("Bravo,hero you won the fight!")
+                current_room.get_char(None)
+        else:  
+            print("Scurry home, you lost the fight.\n That's the end of the game.")
+            dead = True
+    else:
+        print("There is no one here to fight with")
+
