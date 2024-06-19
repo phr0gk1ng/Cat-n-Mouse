@@ -1,14 +1,18 @@
 class Room():
-    def __init__(self, room_name, description):
+    def __init__(self, room_name, description, character):
         self.name = room_name
         self.description = description
         self.linked_rooms = {}
+        self.character = character
+
+    def get_char(self):
+        return self.character
         
     def describe(self):
         print(self.description)
     
-    def linked_room(self, room_to_link, direction):
-        self.linked_rooms[direction] = room_to_link
+    def linked_room(self, linked_rooms):
+        self.linked_rooms = linked_rooms
     
     def get_description(self):
         return self.description
@@ -27,3 +31,4 @@ class Room():
         else:
             print("You can't go that way")
             return self
+        
