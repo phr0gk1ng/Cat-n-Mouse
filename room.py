@@ -25,6 +25,12 @@ class Room():
             room = self.linked_rooms[direction].get_description()
             print("The " + room + " is " + direction)
 
+    def get_item(self):
+        return self.item
+    
+    def set_item(self, item_name):
+        self.item = item_name
+
     def move(self, direction):
         if direction in self.linked_rooms:
             return self.linked_rooms[direction]

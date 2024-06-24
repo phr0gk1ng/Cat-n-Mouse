@@ -1,6 +1,7 @@
 from room import Room
 from character import Character
 from character import Enemy
+from item import Item
 
 tony= Enemy("Tony", "An asian guy", "AAAA", "maths")
 
@@ -14,15 +15,12 @@ hallway1.linked_room({
     "Exit 2": hallway2,
     "Exit 3": cheeseroom
 })
-# hallway1.linked_room(saferoom, "Exit 1")
-# hallway1.linked_room(hallway2, "Exit 2")
-# hallway1.linked_room(cheeseroom, "Exit 3")
-
 hallway2.linked_room({"Exit 1": hallway1})
 saferoom.linked_room({"Exit 1": hallway1})
 cheeseroom.linked_room({"Exit 1", hallway1})
 
 current_room = hallway1
+bag=[]
 
 dead = False
 
@@ -30,10 +28,11 @@ while dead==False:
     print("\n")
     current_room.get_details()
     inhabitant = current_room.get_char()
+
     if inhabitant is not None:
         inhabitant.describe()
+    item = current_room.get_item()
     command = input("> ")
-    current_room = current_room.move(command)
     if command in ["Exit 1", "Exit 2", "Exit 3"]:
         current_room = current_room.move(command)
     elif command == "talk":
@@ -51,6 +50,19 @@ while dead==False:
         else:  
             print("Scurry home, you lost the fight.\n That's the end of the game.")
             dead = True
+    elif command == "pat":
+        if inhabitant is not None:
+            if isinstance(inhabitant, Enemy):
+                print("I wouldn’t do that if I were you...")
+            else:
+                inhabitant.pat()
+        else:
+            print("There is no one here to pat :(")
+    elif command == "take":
+        if item is not None:
+            print("You put the " + item.get_name() + " in your bag")
+            bag.append(item.get_name())
+            current_room.set_item(None)
     else:
         print("There is no one here to fight with")
 

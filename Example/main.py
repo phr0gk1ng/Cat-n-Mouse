@@ -77,3 +77,4 @@ while dead == False:
             print("You put the " + item.get_name() + " in your bag")
             bag.append(item.get_name())
             current_cave.set_item(None)
+        
