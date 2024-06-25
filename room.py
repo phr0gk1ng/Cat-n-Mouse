@@ -1,9 +1,10 @@
 class Room():
-    def __init__(self, room_name, description, character):
+    def __init__(self, room_name, description, character, item):
         self.name = room_name
         self.description = description
         self.linked_rooms = {}
         self.character = character
+        self.item = item
 
     def get_char(self):
         return self.character
@@ -37,4 +38,3 @@ class Room():
         else:
             print("You can't go that way")
             return self
-        
