@@ -12,6 +12,7 @@ class Character():
     def get_conversation(self):
         return self.conversation
 # Talk to this character
+
     def talk(self):
         if self.conversation is not None:
             print("[" + self.name + " says]: "+ self.get_conversation())

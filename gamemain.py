@@ -5,16 +5,16 @@ from item import Item
 
 def main():
     tony= Enemy("Tony", "An asian guy", "AAAA", "maths")
+    cheese= Item("Cheese", "Smelly")
 
-    hallway1 = Room('Hallway','empty room with an errie silence', tony, None)
+    hallway1 = Room('Hallway','empty room with an errie silence', tony, cheese, {"Exit 1": saferoom,"Exit 2": hallway2, "Exit 3": cheeseroom})
     hallway2 = Room('Hallway','empty room with an errie silence', None, None)
     cheeseroom = Room('Cheese Room', 'aroma of cheese wafts through the room', None, None)
     saferoom = Room('Safe Room','small room only a mouse can fit in and you can freely rest', None, None)
-
-    hallway1.linked_room({"Exit 1": saferoom,"Exit 2": hallway2, "Exit 3": cheeseroom})
-    hallway2.linked_room({"Exit 1": hallway1})
-    saferoom.linked_room({"Exit 1": hallway1})
-    cheeseroom.linked_room({"Exit 1", hallway1})
+    hallway1.link_room()
+    hallway2.link_room({"Exit 1": hallway1})
+    saferoom.link_room({"Exit 1": hallway1})
+    cheeseroom.link_room({"Exit 1", hallway1})
 
     current_room = hallway1
     bag=[]
@@ -42,7 +42,13 @@ def main():
         if command in ["Exit 1", "Exit 2", "Exit 3"]:
             current_room = current_room.move(command)
             if current_room == saferoom:
-                #add code to if in safe room what happens
+                print("You have seemed to entered a room with a door to the outside world.")
+                if cheese in bag:
+                    print("You have successfully opened the door with the cheese and are free!!")
+                    break
+                else:
+                    print("The door is locked and seems to have a cheese shaped key hole")
+
         elif command == "talk":
             if inhabitant is not None:
                 inhabitant.talk()
@@ -57,9 +63,9 @@ def main():
     #                 if Enemy.enemies_to_defeat == 0:
     #                     print("Congratulations, you have survived another adventure!")
     #                     dead = True
-            else:  
-                print("Scurry home, you lost the fight.\n That's the end of the game.")
-                dead = True
+            # else:  
+            #     print("Scurry home, you lost the fight.\n That's the end of the game.")
+            #     dead = True
         elif command == "pat":
             if inhabitant is not None:
                 if isinstance(inhabitant, Enemy):
@@ -76,10 +82,13 @@ def main():
         else:
             print("You can't go that way")
 
-main()
+def replay():
+    replay = input('Would you like to play again? \n> ').upper()
+    if replay == 'YES':
+        main()
+    else:
+        exit("Bye that was a nice game.")
 
-replay = input('Would you like to play again? \n> ').upper()
-if input== 'YES':
-    main()
-else:
-    exit("Bye that was a nice game.")
+main()
+replay()
+
