@@ -27,11 +27,11 @@ class Character():
         return self.char_name
     
 class Enemy(Character):
-    enemies_to_defeat = 0
+    # enemies_to_defeat = 0
     def __init__(self, char_name, char_description, conversation, char_weakness):
         super().__init__(char_name, char_description, conversation)
         self.char_weakness = char_weakness
-        Enemy.enemies_to_defeat = Enemy.enemies_to_defeat + 1
+        # Enemy.enemies_to_defeat = Enemy.enemies_to_defeat + 1
     
     def get_char_weakness(self):
         return self.char_weakness
@@ -39,7 +39,7 @@ class Enemy(Character):
     def fight(self, combat_item):
         if combat_item == self.get_char_weakness():
             print("You fend " + self.name + " off with the " + combat_item )
-            Enemy.enemies_to_defeat = Enemy.enemies_to_defeat - 1
+            # Enemy.enemies_to_defeat = Enemy.enemies_to_defeat - 1
             return True
         else:
             print(self.name + " swallows you, little wimp")

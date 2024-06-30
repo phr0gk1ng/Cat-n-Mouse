@@ -8,6 +8,9 @@ class Room():
 
     def get_char(self):
         return self.character
+    
+    def set_char(self, character):
+        self.character = character
         
     def describe(self):
         print(self.description)
