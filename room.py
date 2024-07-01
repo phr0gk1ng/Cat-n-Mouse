@@ -1,10 +1,10 @@
 class Room():
-    def __init__(self, room_name, description, character, item, linked_rooms):
+    def __init__(self, room_name, description, character, item):
         self.name = room_name
         self.description = description
         self.character = character
         self.item = item
-        self.linked_rooms = linked_rooms
+        self.linked_rooms = {}
 
     def get_char(self):
         return self.character
@@ -15,8 +15,8 @@ class Room():
     def describe(self):
         print(self.description)
     
-    # def link_room(self, linked_rooms):
-    #     self.linked_rooms = linked_rooms
+    def link_room(self, linked_rooms):
+         self.linked_rooms = linked_rooms
 
     def get_description(self):
         return self.description
