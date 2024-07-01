@@ -58,26 +58,26 @@ def main():
     saferoom = Room("Rodent Retreat", "A room with sunlight peering through", None, None)
     room20 = Room("Feline Frenzy", "A chaotic playroom with overturned furniture and scattered toys", None, None)
 
-    room1.link_room({"Exit 1": room2,"Exit 2": room8, "Exit 3": room5})
-    room2.link_room({"Exit 1": room3,"Exit 2": room10, "Exit 3": room1})
-    room3.link_room({"Exit 1": room2,"Exit 2": room12, "Exit 3": room4})
-    room4.link_room({"Exit 1": room3,"Exit 2": room14, "Exit 3": room5})
-    room5.link_room({"Exit 1": room1,"Exit 2": room6, "Exit 3": room4})
-    room6.link_room({"Exit 1": room5,"Exit 2": room7, "Exit 3": cheeseroom})
-    room7.link_room({"Exit 1": room8,"Exit 2": room17, "Exit 3": room6})
-    room8.link_room({"Exit 1": room1,"Exit 2": room9, "Exit 3": room7})
-    room9.link_room({"Exit 1": room10,"Exit 2": room18, "Exit 3": room8})
-    room10.link_room({"Exit 1": room2,"Exit 2": room11, "Exit 3": room9})
-    room11.link_room({"Exit 1": room10,"Exit 2": room12, "Exit 3": saferoom})
-    room12.link_room({"Exit 1": room11,"Exit 2": room3, "Exit 3": room13})
-    room13.link_room({"Exit 1": room12,"Exit 2": room14, "Exit 3": room20})
-    room14.link_room({"Exit 1": room13,"Exit 2": room4, "Exit 3": cheeseroom})
-    cheeseroom.link_room({"Exit 1": room14,"Exit 2": room16, "Exit 3": room6})
-    room16.link_room({"Exit 1": room20,"Exit 2": cheeseroom, "Exit 3": room17})
-    room17.link_room({"Exit 1": room18,"Exit 2": room16, "Exit 3": room7})
-    room18.link_room({"Exit 1": room9,"Exit 2": saferoom, "Exit 3": room17})
-    saferoom.link_room({"Exit 1": room11,"Exit 2": room18, "Exit 3": room20})
-    room20.link_room({"Exit 1": saferoom,"Exit 2": room13, "Exit 3": room16})
+    room1.linked_room({"EXIT 1": room2,"EXIT 2": room8, "EXIT 3": room5})
+    room2.linked_room({"EXIT 1": room3,"EXIT 2": room10, "EXIT 3": room1})
+    room3.linked_room({"EXIT 1": room2,"EXIT 2": room12, "EXIT 3": room4})
+    room4.linked_room({"EXIT 1": room3,"EXIT 2": room14, "EXIT 3": room5})
+    room5.linked_room({"EXIT 1": room1,"EXIT 2": room6, "EXIT 3": room4})
+    room6.linked_room({"EXIT 1": room5,"EXIT 2": room7, "EXIT 3": cheeseroom})
+    room7.linked_room({"EXIT 1": room8,"EXIT 2": room17, "EXIT 3": room6})
+    room8.linked_room({"EXIT 1": room1,"EXIT 2": room9, "EXIT 3": room7})
+    room9.linked_room({"EXIT 1": room10,"EXIT 2": room18, "EXIT 3": room8})
+    room10.linked_room({"EXIT 1": room2,"EXIT 2": room11, "EXIT 3": room9})
+    room11.linked_room({"EXIT 1": room10,"EXIT 2": room12, "EXIT 3": saferoom})
+    room12.linked_room({"EXIT 1": room11,"EXIT 2": room3, "EXIT 3": room13})
+    room13.linked_room({"EXIT 1": room12,"EXIT 2": room14, "EXIT 3": room20})
+    room14.linked_room({"EXIT 1": room13,"EXIT 2": room4, "EXIT 3": cheeseroom})
+    cheeseroom.linked_room({"EXIT 1": room14,"EXIT 2": room16, "EXIT 3": room6})
+    room16.linked_room({"EXIT 1": room20,"EXIT 2": cheeseroom, "EXIT 3": room17})
+    room17.linked_room({"EXIT 1": room18,"EXIT 2": room16, "EXIT 3": room7})
+    room18.linked_room({"EXIT 1": room9,"EXIT 2": saferoom, "EXIT 3": room17})
+    saferoom.linked_room({"EXIT 1": room11,"EXIT 2": room18, "EXIT 3": room20})
+    room20.linked_room({"EXIT 1": saferoom,"EXIT 2": room13, "EXIT 3": room16})
 
     current_room = room1
     bag=[]
@@ -108,13 +108,13 @@ def main():
         
         if command in ["EXIT 1", "EXIT 2", "EXIT 3"]:
             current_room = current_room.move(command)
-            if current_room == saferoom:
-                print("You have seemed to entered a room with a door to the outside world.")
-                if cheese in bag:
-                    print("You have successfully opened the door with the cheese and are free!!")
-                    break
-                else:
-                    print("The door is locked and seems to have a cheese shaped key hole")
+            # if current_room == saferoom:
+            #     print("You have seemed to entered a room with a door to the outside world.")
+            #     if cheese in bag:
+            #         print("You have successfully opened the door with the cheese and are free!!")
+            #         break
+            #     else:
+            #         print("The door is locked and seems to have a cheese shaped key hole")
 
         elif command == "TALK":
             if inhabitant is not None:
