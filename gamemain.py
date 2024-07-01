@@ -42,7 +42,7 @@ def main():
     room3 = Room("Squeak Street", "A narrow hallway cluttered with discarded items and old crates, the acrid smell of dust and decay in the air", meancat3, None)
     room4 = Room("Claw Room", "A foreboding room, the walls are scarred with claw marks, and the air is heavy", None, mirror)
     room5 = Room("Nibble Nook", "A cozy kitchen corner with crumbs scattered about, the enticing smell of old cheese and bread mixing", None, None)
-    room6 = Room("Catnip Corner", "A fragrant corner where the intoxicating smell of catnip is overpowering", meancat1, None)
+    room6 = Room("Pawprint Hallway", "A well-worn corridor with overlapping paw prints on the floor", meancat1, None)
     room7 = Room("Tail Trail", "A winding hallway with the faint smell of dust and fur, lined with claw-marked baseboards", None, garlic)
     room8 = Room("Rodent Run", "A damp basement corridor with the smell of mold and wet concrete", None, None)
     room9 = Room("Kitty Kingdom", "A luxurious sitting room with plush cushions and ornate cat statues", nicecat4, None)
@@ -54,7 +54,8 @@ def main():
     cheeseroom = Room("Cheese Chamber", "A pantry with a singular aging cheese left, the air heavy with it's pungent aroma and the lurking danger of prowling felines", meancat4, cheese)
     room16 = Room("Whisker Wood", "A storage room with tall shelves and overgrown plants, the air thick with the smell of damp earth", None, None)
     room17 = Room("Squeak Sanctuary", "A serene, hidden room filled with old, forgotten items and the faint smell of dust", meancat2, None)
-    room18 = Room("Pawprint Hallway", "A well-worn corridor with overlapping paw prints on the floor", nicecat2, None)
+
+    room18 = Room("Catnip Corner", "A fragrant corner where the intoxicating smell of catnip is overpowering", nicecat2, None)
     saferoom = Room("Rodent Retreat", "A room with sunlight peering through", None, None)
     room20 = Room("Feline Frenzy", "A chaotic playroom with overturned furniture and scattered toys", None, None)
 
