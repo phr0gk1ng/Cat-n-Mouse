@@ -19,10 +19,10 @@ def main():
     meancat1 = Enemy("Whiskerblade", "Long whiskers twitch with every movement, sharp claws glint like blades in the light", "You won't see me coming until it's too late, little mouse", "catnip")
     meancat2 = Enemy("Clawdia", "A black cat with piercing green eyes that glow menacingly in the dark", "Toying with you is almost too easy", "mirror")
     meancat3 = Enemy("Fang", "Muscular tabby cat, a scar across his nose and fur is rough and ragged, a testament to the many battles he has fought", "Enter my territory, and you'll leave with more than just a scratch", "ginger")
-    meancat4 = Enemy("Viper", "A cat with a serpentine grace to her movements, dark brown fur is mottled with darker spots", "Careful where you step; one wrong move and you're mine.", "chocolate")
-    meancat5 = Enemy("Raven", "His sharp claws glistens in the darkness, glowing amber eyes hover above", "From the shadows, I'll strike when you least expect it.", "lily flower")
+    meancat4 = Enemy("Viper", "A cat with a serpentine grace to her movements, dark brown fur is mottled with darker spots", "Careful where you step; one wrong move and you're mine", "chocolate")
+    meancat5 = Enemy("Raven", "His sharp claws glistens in the darkness, glowing amber eyes hover above", "From the shadows, I'll strike when you least expect it", "lily flower")
 
-    nicecat1 = Friend("Luna", "A sleek, black cat with mysterious, silver eyes and a calming presence.", "You're close to them, watch out, take out some cocoa if you run into an enemy in an adjacent room")
+    nicecat1 = Friend("Luna", "A sleek, black cat with mysterious, silver eyes and a calming presence", "You're close to them, watch out, take out some cocoa if you run into an enemy in an adjacent room")
     nicecat2 = Friend("Mittens", "White-tipped paws and a sweet disposition, gray tabby with soft fur stands eagerly", "You're safe with me, you can rest here for a bit before they come to get you. But when you leave pick up some ginger, it'll hurt anyone with scars")
     nicecat3 = Friend("Whiskers", "Long whiskers droop tiredly", "Don't let my brother get you, here take some catnip to distract him")
     nicecat4 = Friend("Dahlia", "Her arms look uncontrollable, scribbling line after line, while she sings", "LA LA LA BLACK CATS HATE MIRRORS")
@@ -34,31 +34,29 @@ def main():
     chocolate = Item("chocolate", "A tapestry of cocoa, caramel and vanilla waft through the air like a warm embrace")
     garlic = Item('garlic', "It's just a garlic clove")
     mirror = Item("mirror", "You see your own reflection")
-
     cheese = Item("cheese", "A complex blend of sharp tang and earthy richness. The cheese seemed to hold secrets of distant lands and whispered tales of daring adventurers who dared to taste its bold and mysterious flavors.")
 
-    
     # roomname = Room('name','description', character, item, {"Exit 1": linked room,"Exit 2": linked room, "Exit 3": linked room})
-    room1 = Room("Whisker Way", "A dark, narrow path winding. The air smells damp and earthy, with the faint scent of cat fur.", nicecat5, None)
+    room1 = Room("Whisker Way", "A dark, narrow path winding with the faint scent of cat fur", nicecat5, None)
     room2 = Room("Mousetrap Maze", "A cluttered storage room filled with old furniture and dusty boxes, the air thick with the smell of must and the constant threat of hidden traps.", nicecat3, catnip)
-    room3 = Room("Squeak Street", "A narrow hallway cluttered with discarded items and old crates, the acrid smell of dust and decay in the air.", meancat3, None)
-    room4 = Room("Claw Room", "A foreboding room. The walls are scarred with claw marks, and the air is heavy.", None, mirror)
+    room3 = Room("Squeak Street", "A narrow hallway cluttered with discarded items and old crates, the acrid smell of dust and decay in the air", meancat3, None)
+    room4 = Room("Claw Room", "A foreboding room, the walls are scarred with claw marks, and the air is heavy", None, mirror)
     room5 = Room("Nibble Nook", "A cozy kitchen corner with crumbs scattered about, the enticing smell of old cheese and bread mixing", None, None)
-    room6 = Room("Catnip Corner", "A fragrant corner where the intoxicating smell of catnip is overpowering.", meancat1, None)
-    room7 = Room("Tail Trail", "A winding hallway with the faint smell of dust and fur, lined with claw-marked baseboards.", None, garlic)
-    room8 = Room("Rodent Run", "A damp basement corridor with the smell of mold and wet concrete.", None, None)
+    room6 = Room("Catnip Corner", "A fragrant corner where the intoxicating smell of catnip is overpowering", meancat1, None)
+    room7 = Room("Tail Trail", "A winding hallway with the faint smell of dust and fur, lined with claw-marked baseboards", None, garlic)
+    room8 = Room("Rodent Run", "A damp basement corridor with the smell of mold and wet concrete", None, None)
     room9 = Room("Kitty Kingdom", "A luxurious sitting room with plush cushions and ornate cat statues", nicecat4, None)
-    room10 = Room("Furry Forest", "A dense, cluttered room with tall potted plants and overgrown foliage.", meancat5, None)
-    room11 = Room("Mousehole Manor", "the musty smell of old wood and hidden dangers filling the air", None, chocolate)
-    room12 = Room("Hideaway Haven", "A hidden crawl space behind old furniture, the air musty and stale.", None, None)
-    room13 = Room("Feline Fields", "A large living room with tall furniture and the fresh scent of recently cleaned floors.", None, lilyflower)
+    room10 = Room("Furry Forest", "A dense, cluttered room with tall potted plants and overgrown foliage", meancat5, None)
+    room11 = Room("Mousehole Manor", "The musty smell of old wood and hidden dangers filling the air", None, chocolate)
+    room12 = Room("Hideaway Haven", "A hidden crawl space behind old furniture, the air musty and stale", None, None)
+    room13 = Room("Feline Fields", "A large living room with tall furniture and the fresh scent of recently cleaned floors", None, lilyflower)
     room14 = Room("Sniff Spot", "The air thick with the smell of fear and curiosity", nicecat1, None)
-    cheeseroom = Room("Cheese Chamber", "A pantry with a singular aging cheese left, the air heavy with it's pungent aroma and the lurking danger of prowling felines.", meancat4, cheese)
+    cheeseroom = Room("Cheese Chamber", "A pantry with a singular aging cheese left, the air heavy with it's pungent aroma and the lurking danger of prowling felines", meancat4, cheese)
     room16 = Room("Whisker Wood", "A storage room with tall shelves and overgrown plants, the air thick with the smell of damp earth", None, None)
-    room17 = Room("Squeak Sanctuary", "A serene, hidden room filled with old, forgotten items and the faint smell of dust.", meancat2, None)
+    room17 = Room("Squeak Sanctuary", "A serene, hidden room filled with old, forgotten items and the faint smell of dust", meancat2, None)
     room18 = Room("Pawprint Hallway", "A well-worn corridor with overlapping paw prints on the floor", nicecat2, None)
     saferoom = Room("Rodent Retreat", "A room with sunlight peering through", None, None)
-    room20 = Room("Feline Frenzy", "A chaotic playroom with overturned furniture and scattered toys.", None, None)
+    room20 = Room("Feline Frenzy", "A chaotic playroom with overturned furniture and scattered toys", None, None)
 
     room1.link_room({"Exit 1": room2,"Exit 2": room8, "Exit 3": room5})
     room2.link_room({"Exit 1": room3,"Exit 2": room10, "Exit 3": room1})
@@ -80,7 +78,6 @@ def main():
     room18.link_room({"Exit 1": room9,"Exit 2": saferoom, "Exit 3": room17})
     saferoom.link_room({"Exit 1": room11,"Exit 2": room18, "Exit 3": room20})
     room20.link_room({"Exit 1": saferoom,"Exit 2": room13, "Exit 3": room16})
-
 
     current_room = room1
     bag=[]
@@ -105,9 +102,9 @@ def main():
                 else:
                     print("You were unable to defeat " + inhabitant.name +". \nYou lay there painfully rotting to death.")
                     dead=True
-        
+
         item = current_room.get_item()
-        command = input("> ").upper
+        command = input("> ").upper()
         
         if command in ["EXIT 1", "EXIT 2", "EXIT 3"]:
             current_room = current_room.move(command)
@@ -119,24 +116,25 @@ def main():
                 else:
                     print("The door is locked and seems to have a cheese shaped key hole")
 
-        elif command == "talk":
+        elif command == "TALK":
             if inhabitant is not None:
                 inhabitant.talk()
         
-        elif command == "take":
+        elif command == "TAKE":
             if item is not None:
                 print("You put the " + item.get_name() + " in your bag")
                 bag.append(item.get_name())
                 current_room.set_item(None)
         
-        elif command == "eat":
+        elif command == "EAT":
             if cheese in bag:
                 bag.remove(cheese)
                 print("You eat the cheese. But a weird feeling travels down your spine. The cheese starts to crawl out of your belly buttom and encase you. You suffocate to death from the cheese touch")
                 break
             else:
                 print("You can't eat anything in your bag")
-        elif command == "inventory":
+        
+        elif command == "INVENTORY":
             print(bag)
         else:
             print("You can't go that way")
@@ -147,5 +145,5 @@ def replay():
         main()
     else:
         exit("Bye that was a nice game.")
-welcome()
+main()
 replay()

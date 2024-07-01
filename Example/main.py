@@ -39,7 +39,7 @@ while dead == False:
     if item is not None:
         item.describe()
     command = input(">")
-    current_cave = current_cave.move(command)
+    # current_cave = current_cave.move(command)
     if command in ["north", "south", "east", "west"]:
         current_cave = current_cave.move(command)
     elif command == "talk":

@@ -25,6 +25,7 @@ class Cave:
             print(self.description)
         def link_cave(self, cave_to_link, direction):
             self.linked_caves[direction] = cave_to_link
+            
         def get_details(self):
             print(self.name)
             print("----------")
