@@ -9,6 +9,9 @@ class Room():
     def get_char(self):
         return self.character
     
+    def get_name(self):
+        return self.name
+
     def set_char(self, character):
         self.character = character
         
@@ -30,7 +33,7 @@ class Room():
         print(self.description)
         for direction in self.linked_rooms:
             room = self.linked_rooms[direction].get_description()
-            print("The " + room + " is " + direction)
+            print(room + " is " + direction)
 
     def get_item(self):
         return self.item

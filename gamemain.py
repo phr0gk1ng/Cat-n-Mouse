@@ -1,11 +1,22 @@
 from room import Room
 from character import Character
 from character import Enemy
-from character import Friend
 from item import Item
+from os import system
 
 def welcome():
-    startgame = input("------------------------ Hello! Welcome to Rat and Cheeses ------------------------\nYou will be a mouse trying to make your way through a maze of rooms to the outside world. \nAlong the way you will have to grab items, talk to some cats and defeat the ones trying to kill you. \n To interact with the game use the following commands: \n- Exit 1, 2 or 3: To move between rooms \n- talk: To talk to cats \n- take: To take items from rooms and add it to your pouch \n- inventory: To check your inventory \n- quit: To exit the game \n Would you like to continue to the game? (Y/N) ").upper()
+    startgame = input('''------------------------ Hello! Welcome to Rat and Cheeses ------------------------
+You will be a mouse trying to make your way through a maze of rooms to the outside world. 
+Along the way you will have to grab items, talk to some cats and defeat the ones trying to kill you. 
+To interact with the game use the following commands:
+- Exit 1, 2 or 3: To move between rooms
+- talk: To talk to cats 
+- take: To take items from rooms and add it to your pouch 
+- inventory: To check your inventory
+- quit: To exit the game 
+- ?: To pull up the instructions again
+    
+Would you like to continue to the game? (Y/N) ''').upper()
     if startgame == 'Y':
         print('Good Luck!')
         main()
@@ -21,12 +32,13 @@ def main():
     meancat3 = Enemy("Fang", "Muscular tabby cat, a scar across his nose and fur is rough and ragged, a testament to the many battles he has fought", "Enter my territory, and you'll leave with more than just a scratch", "ginger")
     meancat4 = Enemy("Viper", "A cat with a serpentine grace to her movements, dark brown fur is mottled with darker spots", "Careful where you step; one wrong move and you're mine", "chocolate")
     meancat5 = Enemy("Raven", "His sharp claws glistens in the darkness, glowing amber eyes hover above", "From the shadows, I'll strike when you least expect it", "lily flower")
-
-    nicecat1 = Friend("Luna", "A sleek, black cat with mysterious, silver eyes and a calming presence", "You're close to them, watch out, take out some cocoa if you run into an enemy in an adjacent room")
-    nicecat2 = Friend("Mittens", "White-tipped paws and a sweet disposition, gray tabby with soft fur stands eagerly", "You're safe with me, you can rest here for a bit before they come to get you. But when you leave pick up some ginger, it'll hurt anyone with scars")
-    nicecat3 = Friend("Whiskers", "Long whiskers droop tiredly", "Don't let my brother get you, here take some catnip to distract him")
-    nicecat4 = Friend("Dahlia", "Her arms look uncontrollable, scribbling line after line, while she sings", "LA LA LA BLACK CATS HATE MIRRORS")
-    nicecat5 = Friend("Ryan", "Fur swoops in every direction and he's sitting calming on a chair, a crane resting near by", "My legs are weak so I can't help guide you but you must remember flowers for amber eyes")
+    enemies = [meancat1, meancat2, meancat3, meancat4, meancat5]
+    
+    nicecat1 = Character("Luna", "A sleek, black cat with mysterious, silver eyes and a calming presence", "You're close to them, watch out, take out some cocoa if you run into an enemy in an adjacent room")
+    nicecat2 = Character("Mittens", "White-tipped paws and a sweet disposition, gray tabby with soft fur stands eagerly", "You're safe with me, you can rest here for a bit before they come to get you. But when you leave pick up some ginger, it'll hurt anyone with scars")
+    nicecat3 = Character("Whiskers", "Long whiskers droop tiredly", "Don't let my brother get you, here take some catnip to distract him")
+    nicecat4 = Character("Dahlia", "Her arms look uncontrollable, scribbling line after line, while she sings", "LA LA LA BLACK CATS HATE MIRRORS")
+    nicecat5 = Character("Ryan", "Fur swoops in every direction and he's sitting calming on a chair, a crane resting near by", "My legs are weak so I can't help guide you but you must remember flowers for amber eyes")
 
     # item name= Item("name", "description")
     catnip = Item("catnip", "A leafy green with saw-toothed edges shredded into also a powder")
@@ -38,26 +50,25 @@ def main():
 
     # roomname = Room('name','description', character, item, {"Exit 1": linked room,"Exit 2": linked room, "Exit 3": linked room})
     room1 = Room("Whisker Way", "A dark, narrow path winding with the faint scent of cat fur", nicecat5, None)
-    room2 = Room("Mousetrap Maze", "A cluttered storage room filled with old furniture and dusty boxes, the air thick with the smell of must and the constant threat of hidden traps.", nicecat3, catnip)
+    room2 = Room("Mousetrap Maze", "A cluttered storage room filled with old furniture and dusty boxes, the air thick with the smell of must and the constant threat of hidden traps", nicecat3, catnip)
     room3 = Room("Squeak Street", "A narrow hallway cluttered with discarded items and old crates, the acrid smell of dust and decay in the air", meancat3, None)
     room4 = Room("Claw Room", "A foreboding room, the walls are scarred with claw marks, and the air is heavy", None, mirror)
     room5 = Room("Nibble Nook", "A cozy kitchen corner with crumbs scattered about, the enticing smell of old cheese and bread mixing", None, None)
     room6 = Room("Pawprint Hallway", "A well-worn corridor with overlapping paw prints on the floor", meancat1, None)
     room7 = Room("Tail Trail", "A winding hallway with the faint smell of dust and fur, lined with claw-marked baseboards", None, garlic)
-    room8 = Room("Rodent Run", "A damp basement corridor with the smell of mold and wet concrete", None, None)
+    room8 = Room("Rat Run", "A damp basement corridor with the smell of mold and wet concrete", None, None)
     room9 = Room("Kitty Kingdom", "A luxurious sitting room with plush cushions and ornate cat statues", nicecat4, None)
     room10 = Room("Furry Forest", "A dense, cluttered room with tall potted plants and overgrown foliage", meancat5, None)
-    room11 = Room("Mousehole Manor", "The musty smell of old wood and hidden dangers filling the air", None, chocolate)
+    room11 = Room("Predator's Peak", "The musty smell of old wood and hidden dangers filling the air", None, chocolate)
     room12 = Room("Hideaway Haven", "A hidden crawl space behind old furniture, the air musty and stale", None, None)
     room13 = Room("Feline Fields", "A large living room with tall furniture and the fresh scent of recently cleaned floors", None, lilyflower)
     room14 = Room("Sniff Spot", "The air thick with the smell of fear and curiosity", nicecat1, None)
     cheeseroom = Room("Cheese Chamber", "A pantry with a singular aging cheese left, the air heavy with it's pungent aroma and the lurking danger of prowling felines", meancat4, cheese)
     room16 = Room("Whisker Wood", "A storage room with tall shelves and overgrown plants, the air thick with the smell of damp earth", None, None)
     room17 = Room("Squeak Sanctuary", "A serene, hidden room filled with old, forgotten items and the faint smell of dust", meancat2, None)
-
     room18 = Room("Catnip Corner", "A fragrant corner where the intoxicating smell of catnip is overpowering", nicecat2, None)
     saferoom = Room("Rodent Retreat", "A room with sunlight peering through", None, None)
-    room20 = Room("Feline Frenzy", "A chaotic playroom with overturned furniture and scattered toys", None, None)
+    room20 = Room("Cat's Cradle", "A chaotic playroom with overturned furniture and scattered toys", None, None)
 
     room1.linked_room({"EXIT 1": room2,"EXIT 2": room8, "EXIT 3": room5})
     room2.linked_room({"EXIT 1": room3,"EXIT 2": room10, "EXIT 3": room1})
@@ -80,42 +91,46 @@ def main():
     saferoom.linked_room({"EXIT 1": room11,"EXIT 2": room18, "EXIT 3": room20})
     room20.linked_room({"EXIT 1": saferoom,"EXIT 2": room13, "EXIT 3": room16})
 
-    current_room = room1
+    current_room = saferoom
     bag=[]
 
-    dead = False
-
-    while dead==False:
+    while True:
         print("\n")
         current_room.get_details()
+        item = current_room.get_item()
         inhabitant = current_room.get_char()
         if inhabitant is not None:
             inhabitant.describe()
-            if inhabitant is Enemy:
+            if inhabitant in enemies:
                 inhabitant.talk()
-                print(inhabitant.name + "wants to kill you \n What will you fight with?")
-                fight_with = input('> ')
+                print(inhabitant.name + "wants to kill you \n\nWhat will you fight with?")
+                fight_with = input('\n> ')
                 if fight_with in bag:
                     bag.remove(fight_with)
                     if inhabitant.fight(fight_with) == True:
                         print("Bravo,hero you won the fight!")
                         current_room.set_char(None)
+                    if inhabitant.fight(fight_with) == False:
+                        print("The " + fight_with + " didn't work to kill the enemy. You were unable to defeat " + inhabitant.name +". \nYou lay there painfully rotting to death. \n")
+                        replay()
                 else:
-                    print("You were unable to defeat " + inhabitant.name +". \nYou lay there painfully rotting to death.")
-                    dead=True
+                    print("You don't have that on you. You were unable to defeat " + inhabitant.name +". \nYou lay there painfully rotting to death.\n")
+                    replay()
+        if item is not None:
+            item.describe()
 
-        item = current_room.get_item()
-        command = input("> ").upper()
+        command = input("\n> ").upper()
         
         if command in ["EXIT 1", "EXIT 2", "EXIT 3"]:
+            system('cls')
             current_room = current_room.move(command)
-            # if current_room == saferoom:
-            #     print("You have seemed to entered a room with a door to the outside world.")
-            #     if cheese in bag:
-            #         print("You have successfully opened the door with the cheese and are free!!")
-            #         break
-            #     else:
-            #         print("The door is locked and seems to have a cheese shaped key hole")
+            if current_room is saferoom:
+                print("You have seemed to entered a room with a door to the outside world.\n")
+                if "cheese" in bag:
+                    print("You have successfully opened the door with the cheese and are free!!\n")
+                    replay()
+                else:
+                    print("The door is locked and seems to have a cheese shaped key hole\n")
 
         elif command == "TALK":
             if inhabitant is not None:
@@ -123,28 +138,43 @@ def main():
         
         elif command == "TAKE":
             if item is not None:
-                print("You put the " + item.get_name() + " in your bag")
+                print("You put the " + item.get_name() + " in your bag\n")
                 bag.append(item.get_name())
                 current_room.set_item(None)
         
         elif command == "EAT":
             if cheese in bag:
                 bag.remove(cheese)
-                print("You eat the cheese. But a weird feeling travels down your spine. The cheese starts to crawl out of your belly buttom and encase you. You suffocate to death from the cheese touch")
-                break
+                print("You eat the cheese. But a weird feeling travels down your spine. The cheese starts to crawl out of your belly buttom and encase you. You suffocate to death from the cheese touch\n")
+                replay()
+
             else:
-                print("You can't eat anything in your bag")
+                print("You can't eat anything in your bag\n")
         
         elif command == "INVENTORY":
             print(bag)
+        
+        elif command == "?":
+            print('''------------------------ Hello! Welcome to Rat and Cheeses ------------------------
+    You will be a mouse trying to make your way through a maze of rooms to the outside world. \nAlong the way you will have to grab items, talk to some cats and defeat the ones trying to kill you. \n To interact with the game use the following commands:
+    - Exit 1, 2 or 3: To move between rooms
+    - talk: To talk to cats 
+    - take: To take items from rooms and add it to your pouch 
+    - inventory: To check your inventory
+    - quit: To exit the game 
+    - ?: To pull up instructions again''')
         else:
-            print("You can't go that way")
+            print("You can't go that way\n")
 
 def replay():
-    replay = input('Would you like to play again? \n> ').upper()
-    if replay == 'YES':
-        main()
-    else:
-        exit("Bye that was a nice game.")
-main()
+    while True:
+        replay = input('Would you like to play again? (Y/N) \n> ').upper()
+        if replay == 'Y':
+            main()
+        elif replay == 'N':
+            exit("Bye that was a nice game.")
+        else:
+            print('Invaid Command')
+
+welcome()
 replay()

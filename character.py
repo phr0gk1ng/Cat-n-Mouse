@@ -6,13 +6,15 @@ class Character():
 
 # Describe this character
     def describe(self):
-        print(self.name + " is here!")
+        print("\nCharacter: " + self.name + " is here!")
         print(self.description)
-# Set what this character will say when talked to
+
+
     def get_conversation(self):
         return self.conversation
-# Talk to this character
 
+
+# Talk to this character
     def talk(self):
         if self.conversation is not None:
             print("[" + self.name + " says]: "+ self.get_conversation())
@@ -44,10 +46,3 @@ class Enemy(Character):
         else:
             print(self.name + " swallows you, little wimp")
             return False
-        
-class Friend(Character):
-    def init(self, char_name, char_description, conversation):
-        super().__init__(char_name, char_description, conversation)
-        self.feeling = None
-    def pat(self):
-        print(self.name + " pats you back!")
