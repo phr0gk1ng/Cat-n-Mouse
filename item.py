@@ -9,8 +9,5 @@ class Item:
     def get_description(self):
         return self.description
 
-    def set_description(self, item_description):
-        self.description = item_description
-
     def describe(self):
         print("\nItem: [" + self.name + "] is here - " + self.description)

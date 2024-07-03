@@ -18,7 +18,7 @@ To interact with the game use the following commands:
     
 Would you like to continue to the game? (Y/N) ''').upper()
     if startgame == 'Y':
-        print('Good Luck!')
+        print('\nGood Luck!')
         main()
     if startgame == 'N':
         exit('Cya')
@@ -91,7 +91,7 @@ def main():
     saferoom.linked_room({"EXIT 1": room11,"EXIT 2": room18, "EXIT 3": room20})
     room20.linked_room({"EXIT 1": saferoom,"EXIT 2": room13, "EXIT 3": room16})
 
-    current_room = saferoom
+    current_room = room1
     bag=[]
 
     while True:
@@ -116,6 +116,7 @@ def main():
                 else:
                     print("You don't have that on you. You were unable to defeat " + inhabitant.name +". \nYou lay there painfully rotting to death.\n")
                     replay()
+        
         if item is not None:
             item.describe()
 
@@ -124,13 +125,13 @@ def main():
         if command in ["EXIT 1", "EXIT 2", "EXIT 3"]:
             system('cls')
             current_room = current_room.move(command)
-            if current_room is saferoom:
-                print("You have seemed to entered a room with a door to the outside world.\n")
+            if current_room.get_name() == "Rodent Retreat":
+                print("----------------------------\nYou have seem to have entered a room with a door to the outside world.\n")
                 if "cheese" in bag:
                     print("You have successfully opened the door with the cheese and are free!!\n")
                     replay()
                 else:
-                    print("The door is locked and seems to have a cheese shaped key hole\n")
+                    print("But the door is locked and seems to have a cheese shaped key hole\n")
 
         elif command == "TALK":
             if inhabitant is not None:

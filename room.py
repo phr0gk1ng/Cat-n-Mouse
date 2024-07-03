@@ -14,12 +14,6 @@ class Room():
 
     def set_char(self, character):
         self.character = character
-        
-    def describe(self):
-        print(self.description)
-    
-    # def linked_room(self, room_to_link, direction):
-    #     self.linked_rooms[direction] = room_to_link
 
     def linked_room(self, linked_rooms):
          self.linked_rooms = linked_rooms
