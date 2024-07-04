@@ -5,9 +5,9 @@ from item import Item
 from os import system
 
 def welcome():
-    startgame = input('''------------------------ Hello! Welcome to Rat and Cheeses ------------------------
-You will be a mouse trying to make your way through a maze of rooms to the outside world. 
-Along the way you will have to grab items, talk to some cats and defeat the ones trying to kill you. 
+    startgame = input('''------------------------ Hello! Welcome to Rat Run ------------------------
+You will be a mouse trying to make your way through a maze of rooms to make it to the outside world. 
+Along the way you will have to grab items, talk to cats and defeat the ones trying to kill you. 
 To interact with the game use the following commands:
 - Exit 1, 2 or 3: To move between rooms
 - talk: To talk to cats 
@@ -36,12 +36,12 @@ def main():
     
     nicecat1 = Character("Luna", "A sleek, black cat with mysterious, silver eyes and a calming presence", "You're close to them, watch out, take out some cocoa if you run into an enemy in an adjacent room")
     nicecat2 = Character("Mittens", "White-tipped paws and a sweet disposition, gray tabby with soft fur stands eagerly", "You're safe with me, you can rest here for a bit before they come to get you. But when you leave pick up some ginger, it'll hurt anyone with scars")
-    nicecat3 = Character("Whiskers", "Long whiskers droop tiredly", "Don't let my brother get you, here take some catnip to distract him")
+    nicecat3 = Character("Whisker", "Long whiskers droop tiredly", "Don't let my brother get you, here take some catnip to distract him")
     nicecat4 = Character("Dahlia", "Her arms look uncontrollable, scribbling line after line, while she sings", "LA LA LA BLACK CATS HATE MIRRORS")
-    nicecat5 = Character("Ryan", "Fur swoops in every direction and he's sitting calming on a chair, a crane resting near by", "My legs are weak so I can't help guide you but you must remember flowers for amber eyes")
+    nicecat5 = Character("Ryan", "Fur swoops in every direction and he's sitting calmly on a chair, a crane resting near by", "My legs are weak so I can't help guide you but you must remember flowers for amber eyes")
 
     # item name= Item("name", "description")
-    catnip = Item("catnip", "A leafy green with saw-toothed edges shredded into also a powder")
+    catnip = Item("catnip", "A leafy green with saw-toothed edges shredded into a powder")
     lilyflower = Item("lily flower", "A white six pointed flower with petals that curl outwards towards the top")
     chocolate = Item("chocolate", "A tapestry of cocoa, caramel and vanilla waft through the air like a warm embrace")
     garlic = Item('garlic', "It's just a garlic clove")
@@ -56,7 +56,7 @@ def main():
     room5 = Room("Nibble Nook", "A cozy kitchen corner with crumbs scattered about, the enticing smell of old cheese and bread mixing", None, None)
     room6 = Room("Pawprint Hallway", "A well-worn corridor with overlapping paw prints on the floor", meancat1, None)
     room7 = Room("Tail Trail", "A winding hallway with the faint smell of dust and fur, lined with claw-marked baseboards", None, garlic)
-    room8 = Room("Rat Run", "A damp basement corridor with the smell of mold and wet concrete", None, None)
+    room8 = Room("Rat Room", "A damp basement corridor with the smell of mold and wet concrete", None, None)
     room9 = Room("Kitty Kingdom", "A luxurious sitting room with plush cushions and ornate cat statues", nicecat4, None)
     room10 = Room("Furry Forest", "A dense, cluttered room with tall potted plants and overgrown foliage", meancat5, None)
     room11 = Room("Predator's Peak", "The musty smell of old wood and hidden dangers filling the air", None, chocolate)
@@ -122,6 +122,7 @@ def main():
 
         command = input("\n> ").upper()
         
+        # current_room = current_room.move(command)
         if command in ["EXIT 1", "EXIT 2", "EXIT 3"]:
             system('cls')
             current_room = current_room.move(command)
@@ -136,12 +137,16 @@ def main():
         elif command == "TALK":
             if inhabitant is not None:
                 inhabitant.talk()
+            else:
+                print("\nThere is no one here to talk to")
         
         elif command == "TAKE":
             if item is not None:
-                print("You put the " + item.get_name() + " in your bag\n")
+                print("\nYou put the " + item.get_name() + " in your bag")
                 bag.append(item.get_name())
                 current_room.set_item(None)
+            else:
+                print("\nThere is nothing here to take.")
         
         elif command == "EAT":
             if cheese in bag:
@@ -165,7 +170,7 @@ def main():
     - quit: To exit the game 
     - ?: To pull up instructions again''')
         else:
-            print("You can't go that way\n")
+            print("You can't go that way")
 
 def replay():
     while True:
@@ -178,4 +183,4 @@ def replay():
             print('Invaid Command')
 
 welcome()
-replay()
+# replay()
