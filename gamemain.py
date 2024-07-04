@@ -9,7 +9,7 @@ def welcome():
 You will be a mouse trying to make your way through a maze of rooms to make it to the outside world. 
 Along the way you will have to grab items, talk to cats and defeat the ones trying to kill you. 
 To interact with the game use the following commands:
-- Exit 1, 2 or 3: To move between rooms
+- Exit [number]: To move between rooms (1, 2 or 3)
 - talk: To talk to cats 
 - take: To take items from rooms and add it to your pouch 
 - inventory: To check your inventory
@@ -36,7 +36,7 @@ def main():
     
     nicecat1 = Character("Luna", "A sleek, black cat with mysterious, silver eyes and a calming presence", "You're close to them, watch out, take out some cocoa if you run into an enemy in an adjacent room")
     nicecat2 = Character("Mittens", "White-tipped paws and a sweet disposition, gray tabby with soft fur stands eagerly", "You're safe with me, you can rest here for a bit before they come to get you. But when you leave pick up some ginger, it'll hurt anyone with scars")
-    nicecat3 = Character("Whisker", "Long whiskers droop tiredly", "Don't let my brother get you, here take some catnip to distract him")
+    nicecat3 = Character("Whiskerwind", "Long whiskers droop tiredly", "Don't let my brother get you, here take some catnip to distract him")
     nicecat4 = Character("Dahlia", "Her arms look uncontrollable, scribbling line after line, while she sings", "LA LA LA BLACK CATS HATE MIRRORS")
     nicecat5 = Character("Ryan", "Fur swoops in every direction and he's sitting calmly on a chair, a crane resting near by", "My legs are weak so I can't help guide you but you must remember flowers for amber eyes")
 
@@ -46,7 +46,7 @@ def main():
     chocolate = Item("chocolate", "A tapestry of cocoa, caramel and vanilla waft through the air like a warm embrace")
     garlic = Item('garlic', "It's just a garlic clove")
     mirror = Item("mirror", "You see your own reflection")
-    cheese = Item("cheese", "A complex blend of sharp tang and earthy richness. The cheese seemed to hold secrets of distant lands and whispered tales of daring adventurers who dared to taste its bold and mysterious flavors.")
+    cheese = Item("cheese", "A complex blend of sharp tang and earthy richness. The cheese seemed to hold secrets of distant lands and whispered tales of daring adventurers who dared to taste its bold and mysterious flavors.\nIt seems edible...")
 
     # roomname = Room('name','description', character, item, {"Exit 1": linked room,"Exit 2": linked room, "Exit 3": linked room})
     room1 = Room("Whisker Way", "A dark, narrow path winding with the faint scent of cat fur", nicecat5, None)
